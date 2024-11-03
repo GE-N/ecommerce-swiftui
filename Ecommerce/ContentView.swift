@@ -11,6 +11,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
+                BannerView()
+                    .frame(height: 250)
+                    .ignoresSafeArea()
+                Spacer()
+            }
+            VStack {
                 SearchBarView()
                 Spacer()
             }
@@ -28,21 +34,21 @@ struct SearchBarView: View {
             } label: {
                 Image(systemName: "basket")
             }
-            .foregroundStyle(Style.textColor)
+            .foregroundStyle(Color.white)
 
             Button {
                 // TODO: Navigate to chat
             } label: {
                 Image(systemName: "message")
             }
-            .foregroundStyle(Style.textColor)
+            .foregroundStyle(Color.white)
         }
         .padding(.horizontal)
     }
 
     func searchTextField() -> some View {
         ZStack {
-            Color.black.opacity(0.1)
+            Color.white
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundStyle(Style.textColor)
