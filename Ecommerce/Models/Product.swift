@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import DeveloperToolsSupport
 
 struct Product {
     let title: String
+    let image: ImageResource
+    
+    init(title: String, image: ImageResource = .catfood1) {
+        self.title = title
+        self.image = image
+    }
 }

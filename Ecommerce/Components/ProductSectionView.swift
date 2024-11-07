@@ -22,34 +22,37 @@ struct ProductSection: View {
                     spacing: 16
                 ) {
                     ForEach(1..<10) { i in
-                        ProductItem(item: .init(title: "Product \(i)"))
+                        if i.isMultiple(of: 2) {
+                            ProductItem(item: .init(title: "Product \(i) - Lorem ipsum Dolor"), width: 100)
+                        } else {
+                            ProductItem(item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2), width: 100)
+                        }
                     }
                 }
                 .padding(.horizontal)
             }
+            .frame(height: 205)
         }
     }
 }
 
 struct ProductItem: View {
     let item: Product
+    var width: CGFloat = .infinity
     var body: some View {
-        Button {
+        Button { 
             // TODO: Navigate to product details
         } label: {
             VStack {
-                // TODO: Show product image
-                Image(systemName: "arcade.stick.console.fill")
+                Image(item.image)
                     .resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .aspectRatio(0.5, contentMode: .fit)
-                    .padding(.vertical, 8)
+                    .aspectRatio(1, contentMode: .fit)
                 
-                Text(item.title)
+                Text("\(item.title)")
                     .lineLimit(2)
+                    .padding([.leading, .trailing, .bottom], 8)
             }
-            .frame(width: 100)
-            .padding()
+            .frame(width: width)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .shadow(color: .gray.opacity(0.2), radius: 8)
