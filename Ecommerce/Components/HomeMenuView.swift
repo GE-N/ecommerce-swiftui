@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct HomeMenuView: View {
-    private let layout: [GridItem] = [GridItem(.fixed(125), spacing: 16), GridItem(.fixed(125))]
+    private let layout: [GridItem] = [
+        GridItem(.fixed(125), spacing: 16),
+        GridItem(.fixed(125), spacing: 8)
+    ]
     var body: some View {
         ZStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -53,8 +56,4 @@ struct HomeMenuViewItem: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .shadow(color: .gray.opacity(0.2), radius: 8)
     }
-}
-
-struct HomeMenu {
-    let title: String
 }
