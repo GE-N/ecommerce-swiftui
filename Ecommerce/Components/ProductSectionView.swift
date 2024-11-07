@@ -23,9 +23,15 @@ struct ProductSection: View {
                 ) {
                     ForEach(1..<10) { i in
                         if i.isMultiple(of: 2) {
-                            ProductItem(item: .init(title: "Product \(i) - Lorem ipsum Dolor"), width: 100)
+                            ProductItem(
+                                item: .init(title: "Product \(i) - Lorem ipsum Dolor"),
+                                width: 100
+                            )
                         } else {
-                            ProductItem(item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2), width: 100)
+                            ProductItem(
+                                item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2),
+                                width: 100
+                            )
                         }
                     }
                 }
@@ -38,7 +44,7 @@ struct ProductSection: View {
 
 struct ProductItem: View {
     let item: Product
-    var width: CGFloat = .infinity
+    var width: CGFloat?
     var body: some View {
         Button { 
             // TODO: Navigate to product details
@@ -52,10 +58,30 @@ struct ProductItem: View {
                     .lineLimit(2)
                     .padding([.leading, .trailing, .bottom], 8)
             }
-            .frame(width: width)
+            .setWidth(width)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .shadow(color: .gray.opacity(0.2), radius: 8)
+        }
+    }
+}
+
+// MARK: -
+
+private extension View {
+    /// To perform set content's width with optional value to avoid issue `invalid frame dimension (negative or non-finite)` issue on runtime.
+    func setWidth(_ width: CGFloat?) -> some View {
+        modifier(OptionalWidth(width: width))
+    }
+}
+
+private struct OptionalWidth: ViewModifier {
+    var width: CGFloat?
+    func body(content: Content) -> some View {
+        if let width = self.width, width >= 0 {
+            content.frame(width: width)
+        } else {
+            content
         }
     }
 }
