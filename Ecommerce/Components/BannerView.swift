@@ -7,19 +7,78 @@
 
 import UIKit
 import SwiftUI
+import Kingfisher
 
 /// Carousel banner view from UIPageViewController converted to SwiftUI by UIViewControllerRepresentable
 struct BannerView: UIViewControllerRepresentable {
+    let banners: [Banner]
+
     func makeUIViewController(context: Context) -> BannerViewController {
-        BannerViewController()
+        BannerViewController(items: banners)
     }
-    
+
     func updateUIViewController(_ uiViewController: BannerViewController, context: Context) {}
 }
 
 // MARK: - 
 
+final class BannerPageViewController: UIViewController {
+    let item: Banner
+
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    let emptyView = UIView()
+
+    init(item: Banner) {
+        self.item = item
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupLayout()
+        start()
+    }
+
+    private func setupLayout() {
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyView)
+        view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: view.topAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: 1),
+            emptyView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            emptyView.heightAnchor.constraint(equalToConstant: 112),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+
+    func start() {
+        if let hexColor = item.backgroundColor {
+            emptyView.backgroundColor = UIColor(hexString: hexColor)
+        }
+
+        guard let url = item.imageUrl,
+              let imageUrl = URL(string: url)
+        else { return }
+        imageView.kf.setImage(with: imageUrl)
+    }
+}
+
 final class BannerViewController: UIViewController {
+    let bannersItem: [Banner]
+
     private lazy var carousel: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -27,30 +86,11 @@ final class BannerViewController: UIViewController {
         pageViewController.dataSource = self
         return pageViewController
     }()
-    
-    private var banner1: UIViewController {
-        let banner = UIViewController()
-        banner.view.backgroundColor = .systemOrange
-        // TODO: Image content and tap to navigate to full page banner content
-        return banner
-    }
-    
-    private var banner2: UIViewController {
-        let banner = UIViewController()
-        banner.view.backgroundColor = .systemPink
-        // TODO: Image content and tap to navigate to full page banner content
-        return banner
-    }
-    
-    private var banner3: UIViewController {
-        let banner = UIViewController()
-        banner.view.backgroundColor = .systemMint
-        // TODO: Image content and tap to navigate to full page banner content
-        return banner
-    }
-    
-    private lazy var banners: [UIViewController] = {
-        [banner1, banner2, banner3]
+
+    private lazy var banners: [BannerPageViewController] = {
+        bannersItem.map { banner in
+            BannerPageViewController(item: banner)
+        }
     }()
     
     private lazy var pageControl: UIPageControl = {
@@ -60,7 +100,8 @@ final class BannerViewController: UIViewController {
         return pageControl
     }()
     
-    init() {
+    init(items: [Banner]) {
+        self.bannersItem = items
         super.init(nibName: nil, bundle: nil)
         carousel.setViewControllers(
             [banners[0]],
@@ -98,7 +139,8 @@ extension BannerViewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController)
     -> UIViewController? {
-        guard let currentIndex = banners.firstIndex(of: viewController) else { return nil }
+        guard let bannerViewController = viewController as? BannerPageViewController,
+            let currentIndex = banners.firstIndex(of: bannerViewController) else { return nil }
         return currentIndex == 0 ? banners.last : banners[currentIndex - 1]
     }
     
@@ -106,7 +148,8 @@ extension BannerViewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController)
     -> UIViewController? {
-        guard let currentIndex = banners.firstIndex(of: viewController) else { return nil }
+        guard let bannerViewController = viewController as? BannerPageViewController,
+            let currentIndex = banners.firstIndex(of: bannerViewController) else { return nil }
         return currentIndex == banners.count - 1 ? banners.first : banners[currentIndex + 1]
     }
 }
@@ -117,7 +160,7 @@ extension BannerViewController: UIPageViewControllerDelegate {
         didFinishAnimating finished: Bool,
         previousViewControllers: [UIViewController],
         transitionCompleted completed: Bool) {
-            guard let currentViewController = pageViewController.viewControllers?.first,
+            guard let currentViewController = pageViewController.viewControllers?.first as? BannerPageViewController,
                   let currentIndex = banners.firstIndex(of: currentViewController)
             else { return }
             pageControl.currentPage = currentIndex

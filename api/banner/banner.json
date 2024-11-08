@@ -1,0 +1,28 @@
+{
+    "banners": [
+      {
+        "id": 1,
+        "imageUrl": "http://localhost:8080/api/banner/discount-img1.png",
+        "linkUrl": "https://example.com/product1",
+        "title": "Banner 1",
+        "description": "Description for Banner 1",
+        "backgroundColor": "#6F4786"
+      },
+      {
+        "id": 2,
+        "imageUrl": "http://localhost:8080/api/banner/discount-img2.png",
+        "linkUrl": "https://example.com/product2",
+        "title": "Banner 2",
+        "description": "Description for Banner 2",
+        "backgroundColor": "#3F3A39"
+      },
+      {
+        "id": 3,
+        "imageUrl": "http://localhost:8080/api/banner/discount-img3.png",
+        "linkUrl": "https://example.com/product3",
+        "title": "Banner 3",
+        "description": "Description for Banner 3",
+        "backgroundColor": "#A0629D"
+      }
+    ]
+  }
