@@ -9,26 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 0) {
-                    BannerView()
-                        .frame(height: 250)
-                    HomeMenuView()
-                    ProductSection()
-                    Color.gray.opacity(0.1)
-                        .frame(height: 24)
-                    ProductSection()
-                    Color.gray.opacity(0.1)
-                        .frame(height: 24)
-                    RecommendProductView()
+        NavigationView {
+            ZStack {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        BannerView()
+                            .frame(height: 250)
+                        HomeMenuView()
+                        ProductSection()
+                        Color.gray.opacity(0.1)
+                            .frame(height: 24)
+                        ProductSection()
+                        Color.gray.opacity(0.1)
+                            .frame(height: 24)
+                        RecommendProductView()
+                    }
                 }
-            }
-            .ignoresSafeArea(.all)
+                .ignoresSafeArea(.all)
 
-            VStack {
-                SearchBarView()
-                Spacer()
+                VStack {
+                    SearchBarView()
+                    Spacer()
+                }
             }
         }
     }
@@ -51,8 +53,12 @@ struct RecommendProductView: View {
             ScrollView {
                 LazyVGrid(columns: layout) {
                     ForEach(0..<10) { i in
-                        ProductItem(item: .init(title: "item \(i)"))
-                            .padding(.bottom, 8)
+                        NavigationLink {
+                            ProductDetailsView()
+                        } label: {
+                            ProductItem(item: .init(title: "item \(i)"))
+                                .padding(.bottom, 8)
+                        }
                     }
                 }
             }

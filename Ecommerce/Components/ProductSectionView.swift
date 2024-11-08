@@ -22,16 +22,20 @@ struct ProductSection: View {
                     spacing: 16
                 ) {
                     ForEach(1..<10) { i in
-                        if i.isMultiple(of: 2) {
-                            ProductItem(
-                                item: .init(title: "Product \(i) - Lorem ipsum Dolor"),
-                                width: 100
-                            )
-                        } else {
-                            ProductItem(
-                                item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2),
-                                width: 100
-                            )
+                        NavigationLink {
+                            ProductDetailsView()
+                        } label: {
+                            if i.isMultiple(of: 2) {
+                                ProductItem(
+                                    item: .init(title: "Product \(i) - Lorem ipsum Dolor"),
+                                    width: 100
+                                )
+                            } else {
+                                ProductItem(
+                                    item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2),
+                                    width: 100
+                                )
+                            }
                         }
                     }
                 }
@@ -45,24 +49,21 @@ struct ProductSection: View {
 struct ProductItem: View {
     let item: Product
     var width: CGFloat?
+
     var body: some View {
-        Button { 
-            // TODO: Navigate to product details
-        } label: {
-            VStack {
-                Image(item.image)
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                
-                Text("\(item.title)")
-                    .lineLimit(2)
-                    .padding([.leading, .trailing, .bottom], 8)
-            }
-            .setWidth(width)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .shadow(color: .gray.opacity(0.2), radius: 8)
+        VStack {
+            Image(item.image)
+                .resizable()
+                .aspectRatio(1, contentMode: .fit)
+            
+            Text("\(item.title)")
+                .lineLimit(2)
+                .padding([.leading, .trailing, .bottom], 8)
         }
+        .setWidth(width)
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .shadow(color: .gray.opacity(0.2), radius: 8)
     }
 }
 
