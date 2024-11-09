@@ -1,0 +1,124 @@
+{
+  "products": [
+      {
+          "name": "Purina ONE Tender Selects Blend with Real Salmon",
+          "price": 520,
+          "description": "A premium dry cat food made with real salmon to promote a healthy heart and strong muscles. Packed with essential nutrients and omega-6 fatty acids for healthy skin and coat.",
+          "imageUrl": "https://www.purina.com/_gatsby/image/3a1bbc679d538f55a6062d4789776c00/7d5f95e0435891d1ac6df0357659d982/purina-one-tender-selects-chicken.avif?u=https%3A%2F%2Fwww.purina.com%2Fsites%2Fdefault%2Ffiles%2Fproducts%2Fpurina-one-tender-selects-chicken.png&a=w%3D800%26h%3D1000%26fm%3Davif%26q%3D75&cd=96cbcc186877a61705287273962f8bff"
+      },
+      {
+          "name": "Hill's Science Diet Adult Indoor Cat Food",
+          "price": 770,
+          "description": "Specially formulated for indoor cats, this nutritious dry food is crafted with natural fibers for digestive health and high-quality protein to maintain lean muscles.",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRsesZXzdzeFmzjrlrPOW3-WxCkNtrJ6hEgdjsDg79FW4V7TZQ0cP9jLcgahdUHosVH3-M-R80z6Z_H0FKSYKEa3QVJS6QUsXkIrtq--_qj47gogggreMcvS3EatN2DoJxuDkTkUhld1Uhx&usqp=CAc"
+      },
+      {
+          "name": "Blue Buffalo Wilderness High Protein Grain Free",
+          "price": 650,
+          "description": "A grain-free, high-protein recipe made with real chicken to satisfy a cat’s natural craving. Enhanced with vitamins, minerals, and antioxidants for overall health.",
+          "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRyuCCm2GI2u52obAa7gbeQfdlGPuizqxbsoEzOmhaJj281rC8s9B6F5ZwaaaiW7pisYMDk5BNhbQmdUqSnXPlnlRloj-jnucrRgLUXfl7XELeuprWx1hkImr3nxHcG3RZoq9BhvC_1&usqp=CAc"
+      },
+      {
+          "name": "Royal Canin Size Health Nutrition Small Adult Formula",
+          "price": 880,
+          "description": "This small breed dog food provides balanced nutrition to support ideal weight, while enhancing skin health and coat shine through enriched formulas.",
+          "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQlxRT5s4L9HJM1omw0rGUO1W3_bVv6bmtXecUAb8lilKPRmsI37pxIsg0fdBfpnzoJqoBfrTEB4vQZOjsDY6Sk21pj3JRQPYlZ0Sv97wGnhBrqzsp38Ic6Pw696B8ljOGY9CTTIHBAeA&usqp=CAc"
+      },
+      {
+          "name": "Pedigree Complete Nutrition Adult Dry Dog Food",
+          "price": 560,
+          "description": "An affordable, balanced diet for adult dogs, featuring whole grains, protein, and essential nutrients that support healthy digestion and a strong immune system.",
+          "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQQBmM0v-4Orh8VDoMUvGqyLW--zPY6m4vayTDDrksy5yqygg9cA3t_QYVBKNfIiGAwwm7BZQyeuoLKKqJ9NIJU2cDbN3mo2fyDGgMOBdF3wo0iTyyw4_rR0X-Bn6nWkpKGD09Uz_Dg4w&usqp=CAc"
+      },
+      {
+          "name": "Wellness CORE RawRev High-Protein Dog Food",
+          "price": 1150,
+          "description": "Grain-free, high-protein formula with freeze-dried raw meat, providing an irresistibly tasty meal packed with essential vitamins and probiotics for canine health.",
+          "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTwK6jmGw1o_4QsedxJ82sxLFn6Nmerz4f7UAl0EzmRty08PH1rrGJ_LsS1Ebua_sPQm1baCA0UnxlhCbIJa4A3-HV2p-c8Zl5AuvO9RLgauuZ81clABhNNF9vjVNbabrPET22sAJs&usqp=CAc"
+      },
+      {
+          "name": "Iams Proactive Health Indoor Weight & Hairball Control",
+          "price": 640,
+          "description": "Formulated to reduce hairballs and help indoor cats maintain a healthy weight. Made with real chicken and prebiotics for digestive health.",
+          "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTFghUjcXrrsSpZjZ0ec-BEhcikHg3Uw5NnJ8USF2NJlEoi6zod169FFmly3BQR0auVC_W6NAjg6DDElnK7THj8XtIhJ2MZfmFaMJnoJHvwvSbZchEXPUz97UfyF_RsK46ajjEN47U-sQ&usqp=CAc"
+      },
+      {
+          "name": "Royal Canin Feline Health Nutrition Indoor Adult",
+          "price": 800,
+          "description": "Specialized for indoor cats, this formula aids digestion and reduces hairballs while supporting a shiny coat and maintaining a healthy weight.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfPqm8e4-7CcBh_Vl3Knn9Le2qe9x4T2ER6JZTH5LmKC_i5ReMhfHHhZPZbqpFxXiwFcmL8yAbX7fnJ5fC9ljO1AZ1GYII0Xzhry5PlHW0-VbS14I0SO3fSYc28Zda39wbSi3J8g&usqp=CAc"
+      },
+      {
+          "name": "Whiskas Adult Tuna Dry Cat Food",
+          "price": 340,
+          "description": "Made with real tuna, this complete and balanced diet is rich in protein, vitamins, and minerals that help keep your adult cat active and healthy.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSSpZ0hAO79lFZSCyNF298aakwtSoqS1jB4k-T04pq7kuTbvvP2mdzXOhl4DLjSFi-tunAMgUP4HL0_bGfJNVcx3DD_D_fGmy4s9oLnCcgUYEOD48cH7pxSymv92gOkWN5mZhDaRK1hIQ&usqp=CAc"
+      },
+      {
+          "name": "Canagan Free-Run Chicken Grain-Free Dog Food",
+          "price": 1050,
+          "description": "Crafted with free-run chicken as the main ingredient, this grain-free dog food promotes strong muscles and supports a healthy immune system.",
+          "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRhAEebHd9RCPOR28ql8XXEOJtzVE-egP8UANErDZ6Eap1ElKSEUlN7xrpIznoo6NkfRGKR378PBPZy1DTPFsH_Y_HbHr7KJkvBTzLlfG0Xl31cKI74mHsLkCIqaPPRnzqpwRfnyvmO&usqp=CAc"
+      },
+      {
+          "name": "Purina Pro Plan FOCUS Sensitive Skin & Stomach",
+          "price": 890,
+          "description": "Ideal for cats with sensitive skin and stomachs, made with easily digestible ingredients and prebiotic fiber for optimal digestive health.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRJNNKTbEqZtt3I4HBFFOqsj8Ix23Gn4-2E-rl81ooV6adeZjVM6i7UJEREefeb35yBU3DfiTNWtTfStTwZVuwavq3QOLgAuUlQBEzZqTKZkYUaw0tlgDhzoj2Ljl_7_IDodYkB9cU&usqp=CAc"
+      },
+      {
+          "name": "Taste of the Wild High Prairie Canine Recipe",
+          "price": 990,
+          "description": "High-protein, grain-free dog food with real roasted meats and a blend of nutritious vegetables, fruits, and probiotics for digestive and immune health.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSu7onM1rwu-gAWJ7Io44MgpBuHsPiEwZa8V8C1LcsSE7UUNWEKFzGQU3vGsqaAlTePZp6KnK8OvXBgIA1Oviy8deQ888VO8E--jQzBHeZVAFZblxe-TgPYuJzJ1sdWy21R1cKRH_WHDQ&usqp=CAc"
+      },
+      {
+          "name": "Orijen High-Protein Dry Cat Food, Regional Red",
+          "price": 1400,
+          "description": "Protein-rich dry food made with red meat, providing a nutrient-dense diet for cats. Contains no artificial preservatives, grains, or fillers.",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR2tuxAQRZgqJGPPVTrhJtn51jJoCAyhxc1xcN_GPwcSxwFG57y7uS26ysqLxLuqX9LeoIJYMefkdtF3HMhkG7mMPV5gdWZsvZyKt_L6QBAYNLZr4KG8WEM4Dc6zDb1vjPWN-l_qZMV&usqp=CAc"
+      },
+      {
+          "name": "Nutro Ultra Adult Dry Dog Food",
+          "price": 820,
+          "description": "A premium dog food blend made with protein-rich lamb, chicken, and salmon for complete nutrition, supporting active, healthy lifestyles.",
+          "imageUrl": "https://www.nutro.com/cdn-cgi/image/width=600,height=600,f=auto,quality=90/sites/g/files/fnmzdf2471/files/migrate-product-files/images/eus99vef4gpvjkhyincs.png"
+      },
+      {
+          "name": "Friskies Party Mix Cat Treats: Beachside Flavor",
+          "price": 220,
+          "description": "Irresistible crunchy cat treats bursting with ocean flavors. Enriched with essential vitamins and taurine for eye and heart health.",
+          "imageUrl": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTfaPbB6jcmn1ayZOCLRmqnvb3y5Bcrx3PgPj2KpYoZvZtSJp7G39u3mXv1GHzkjFJWfTtkBZg5KYWUyvzvuX0WOBCUqUZWNJu9o8u1btoHVeEBWeSh0JbNIPZCUv5Fhe2XGjbciS0&usqp=CAc"
+      },
+      {
+          "name": "Acana Grasslands Regional Formula Dog Food",
+          "price": 1250,
+          "description": "Grain-free dog food inspired by local farms, featuring lamb, duck, and fish for a protein-rich and balanced meal for your dog.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTRFEpSCd54RvwIK9bFAhCRE4nr25g_nO3Cr1U_p316qJ01S9WRbku-8U6JF-yNDbqjL-UhMpDvG4TkGFLUOnZuZqvZq6by9AERIHJNGZ7ZM5iO8t4Yp9Vb8v9vHurfIQXBm5HHpvsS&usqp=CAc"
+      },
+      {
+          "name": "Sheba Perfect Portions Cuts in Gravy Wet Cat Food",
+          "price": 450,
+          "description": "Delicious cuts of premium chicken and tuna in a rich gravy, served in convenient portion packs to keep each meal fresh and flavorful.",
+          "imageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTW4nC19RwqOyvw-La3MQsWPdkUeE9lWao4itzjja8SozlQMuahpGJqXhZDk9zsg5JioU6UZpev77GZnvxjjn0kPA7SKR_qy7rqGSBs2kpO5SK2JGkdECYnEGN38o9D8V7Lqmn3QW-l-w&usqp=CAc"
+      },
+      {
+          "name": "Purina Pro Plan Savor Adult Shredded Blend Dog Food",
+          "price": 960,
+          "description": "A blend of crunchy kibble and tender, shredded pieces for taste and texture variety, made with real meat to support strong muscles.",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQF0ylqD075THuZy5EHkm9h9evzvo0Xk4X3uJLsgMgf9-P_EAy5oZKWdDMFOVxNVhxOqT6DdMenji_-xEThpUHLqPwyoh1yDE00q6RszRUXW8LdlBs9daiACkpjOZiDaYlkSoagmA&usqp=CAc"
+      },
+      {
+          "name": "Applaws Natural Wet Cat Food Tuna Fillet",
+          "price": 300,
+          "description": "All-natural wet cat food with tuna fillet as the main ingredient, ideal for cats who enjoy premium, protein-rich meals without fillers.",
+          "imageUrl": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSKxTamyiwZnj6urD3e1SG6gtSzHm_EWIMcrBGBkQ0oFtnKb1zXRF4VtRqzKcP5qQwL_F3IHpbVRLKUci-bdasyOa4qlMSPt3YITJUhBXaasJ3dhGns673bP8LwApfiQRoEO08Bddju-M8&usqp=CAc"
+      },
+      {
+          "name": "Blue Buffalo Life Protection Formula Dog Food",
+          "price": 780,
+          "description": "Balanced with protein, vegetables, and antioxidants, this recipe promotes a healthy coat, strong muscles, and an active lifestyle.",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRPhAOcxCpOUZdwWmILE6x6rvTsZ8cDan327d2QPRVVZcfVnKKYJeITvn4pUqckPzUpDwE3EL121d408anyk9-gMmXJkzmSz_OT500fsce0_DC_7EAUv-QD&usqp=CAc"
+      }
+  ]
+}

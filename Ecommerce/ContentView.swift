@@ -16,12 +16,14 @@ struct ContentView: View {
 }
 
 struct RecommendProductView: View {
+    let products: [Product]
     @State var showLoadmore: Bool = true
 
     private let layout: [GridItem] = [
         GridItem(.adaptive(minimum: 100), spacing: 16),
         GridItem(.adaptive(minimum: 100), spacing: 16)
     ]
+
     var body: some View {
         VStack {
             Text("Recommend Product")
@@ -31,12 +33,15 @@ struct RecommendProductView: View {
             
             ScrollView {
                 LazyVGrid(columns: layout) {
-                    ForEach(0..<10) { i in
+                    ForEach(products) { product in
                         NavigationLink {
                             ProductDetailsView()
                         } label: {
-                            ProductItem(item: .init(title: "item \(i)"))
-                                .padding(.bottom, 8)
+                            ProductItem(item: .init(
+                                title: product.name,
+                                imageURL: product.imageUrl)
+                            )
+                            .padding(.bottom, 8)
                         }
                     }
                 }

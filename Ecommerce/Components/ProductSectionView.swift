@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProductSection: View {
     var body: some View {
@@ -32,7 +33,7 @@ struct ProductSection: View {
                                 )
                             } else {
                                 ProductItem(
-                                    item: .init(title: "Product \(i) - Lorem ipsum Dolor", image: .catfood2),
+                                    item: .init(title: "Product \(i) - Lorem ipsum Dolor"),
                                     width: 100
                                 )
                             }
@@ -52,11 +53,18 @@ struct ProductItem: View {
 
     var body: some View {
         VStack {
-            Image(item.image)
-                .resizable()
-                .aspectRatio(1, contentMode: .fit)
-            
-            Text("\(item.title)")
+            if let url = item.imageUrl,
+               let imageUrl = URL(string: url) {
+                KFImage(imageUrl)
+                    .resizable()
+                    .aspectRatio(0.75, contentMode: .fit)
+            } else {
+                Image(.catfood2)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+            }
+
+            Text("\(item.name)")
                 .lineLimit(2)
                 .padding([.leading, .trailing, .bottom], 8)
         }
@@ -65,6 +73,13 @@ struct ProductItem: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .shadow(color: .gray.opacity(0.2), radius: 8)
     }
+}
+
+#Preview {
+    let product = Product(
+        title: "Purina ONE Tender Selects Blend with Real Salmon",
+        imageURL: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRsesZXzdzeFmzjrlrPOW3-WxCkNtrJ6hEgdjsDg79FW4V7TZQ0cP9jLcgahdUHosVH3-M-R80z6Z_H0FKSYKEa3QVJS6QUsXkIrtq--_qj47gogggreMcvS3EatN2DoJxuDkTkUhld1Uhx&usqp=CAc")
+    ProductItem(item: product)
 }
 
 // MARK: -

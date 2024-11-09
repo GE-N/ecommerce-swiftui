@@ -8,12 +8,20 @@
 import Foundation
 import DeveloperToolsSupport
 
-struct Product {
-    let title: String
-    let image: ImageResource
-    
-    init(title: String, image: ImageResource = .catfood1) {
-        self.title = title
-        self.image = image
+struct Product: Codable {
+    let name: String
+    let imageUrl: String?
+
+    init(title: String, imageURL: String? = nil) {
+        self.name = title
+        self.imageUrl = imageURL
     }
+}
+
+extension Product: Identifiable {
+    var id: String { name }
+}
+
+struct ProductResult: Codable {
+    let products: [Product]
 }

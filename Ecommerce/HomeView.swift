@@ -9,13 +9,30 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var banners: [Banner] = []
+    @Published var recommendProducts: [Product] = []
 
     @MainActor
-    func fetchBanners() async throws {
-        let getBannersUrl = URL(string: "http://localhost:8080/api/banner/banner.json")!
-        let (apiResult, _) = try await URLSession.shared.data(from: getBannersUrl)
-        let result = try JSONDecoder().decode(BannerResult.self, from: apiResult)
-        self.banners = result.banners
+    func fetchBanners() async {
+        do {
+            let getBannersUrl = URL(string: "http://localhost:8080/api/banner/banner.json")!
+            let (apiResult, _) = try await URLSession.shared.data(from: getBannersUrl)
+            let result = try JSONDecoder().decode(BannerResult.self, from: apiResult)
+            self.banners = result.banners
+        } catch {
+            print("fetch banner error: \(error.localizedDescription)")
+        }
+    }
+
+    @MainActor
+    func fetchRecommendProducts() async {
+        do {
+            let getRecommendProductsUrl = URL(string: "http://localhost:8080/api/products/recommend.json")!
+            let (apiResult, _) = try await URLSession.shared.data(from: getRecommendProductsUrl)
+            let result = try JSONDecoder().decode(ProductResult.self, from: apiResult)
+            self.recommendProducts = result.products
+        } catch {
+            print("fetch recommend items error: \(error)")
+        }
     }
 }
 
@@ -37,7 +54,9 @@ struct HomeView: View {
                     ProductSection()
                     Color.gray.opacity(0.1)
                         .frame(height: 24)
-                    RecommendProductView()
+                    if !viewModel.recommendProducts.isEmpty {
+                        RecommendProductView(products: viewModel.recommendProducts)
+                    }
                 }
             }
             .ignoresSafeArea(.all)
@@ -48,11 +67,8 @@ struct HomeView: View {
             }
         }
         .task {
-            do {
-                try await viewModel.fetchBanners()
-            } catch {
-                print("fetch banner error: \(error.localizedDescription)")
-            }
+            await viewModel.fetchBanners()
+            await viewModel.fetchRecommendProducts()
         }
     }
 }
