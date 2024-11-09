@@ -16,5 +16,8 @@ struct ContentView: View {
 }
 
 #Preview {
+    let api = API()
+    
     ContentView()
+        .environmentObject(api)
 }

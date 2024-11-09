@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct EcommerceApp: App {
+    let api = API()
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .environmentObject(api)
     }
 }

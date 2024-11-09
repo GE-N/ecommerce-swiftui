@@ -12,31 +12,32 @@ class HomeViewModel: ObservableObject {
     @Published var recommendProducts: [Product] = []
 
     @MainActor
-    func fetchBanners() async {
-        do {
-            let getBannersUrl = URL(string: "http://localhost:8080/api/banner/banner.json")!
-            let (apiResult, _) = try await URLSession.shared.data(from: getBannersUrl)
-            let result = try JSONDecoder().decode(BannerResult.self, from: apiResult)
+    func fetchBanners(_ api: API) async {
+        let apiResult: Result<BannerResult, Error> = await api.request(.banners)
+        switch apiResult {
+        case let .success(result):
             self.banners = result.banners
-        } catch {
-            print("fetch banner error: \(error.localizedDescription)")
+        case .failure(let error):
+            // TODO: handle error if API load fail
+            break
         }
     }
 
     @MainActor
-    func fetchRecommendProducts() async {
-        do {
-            let getRecommendProductsUrl = URL(string: "http://localhost:8080/api/products/recommend.json")!
-            let (apiResult, _) = try await URLSession.shared.data(from: getRecommendProductsUrl)
-            let result = try JSONDecoder().decode(ProductResult.self, from: apiResult)
+    func fetchRecommendProducts(_ api: API) async {
+        let apiResult: Result<ProductResult, Error> = await api.request(.recommendProducts)
+        switch apiResult {
+        case let .success(result):
             self.recommendProducts = result.products
-        } catch {
-            print("fetch recommend items error: \(error)")
+        case .failure(let error):
+            // TODO: handle error if API load fail
+            break
         }
     }
 }
 
 struct HomeView: View {
+    @EnvironmentObject var api: API
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
 
     var body: some View {
@@ -67,12 +68,15 @@ struct HomeView: View {
             }
         }
         .task {
-            await viewModel.fetchBanners()
-            await viewModel.fetchRecommendProducts()
+            await viewModel.fetchBanners(api)
+            await viewModel.fetchRecommendProducts(api)
         }
     }
 }
 
 #Preview {
+    let api = API()
+    
     HomeView()
+        .environmentObject(api)
 }
